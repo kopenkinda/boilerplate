@@ -1,5 +1,6 @@
 'use client';
 import { Button } from '@repo/ui/button';
+import { api } from './api';
 
 const RootPage = () => {
   return (
@@ -7,10 +8,17 @@ const RootPage = () => {
       <h1 className="text-3xl font-bold text-white">Boilerplate</h1>
       <Button
         onClick={() => {
-          fetch('http://localhost:3001/')
-            .then((res) => res.text())
-            .then((data) => alert(data))
-            .catch((err) => alert(err.message));
+          api
+            .appControllerBasicTypeExample({
+              exampleDto: {
+                message: 'Hello world with a generated client lib',
+              },
+            })
+            .then((res) => {
+              if (res.status === 201) {
+                alert(res.data);
+              }
+            });
         }}>
         Hi
       </Button>

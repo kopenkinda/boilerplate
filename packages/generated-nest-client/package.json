@@ -1,0 +1,30 @@
+{
+  "name": "@repo/generated-nest-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "generate": "oazapfts \"http://localhost:3001/api-json\" --argumentStyle=\"object\" > client.ts"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
+    "@types/eslint": "^8.56.1",
+    "@types/node": "^20.10.6",
+    "eslint": "^8.56.0",
+    "oazapfts": "^5.1.4",
+    "typescript": "^5.3.3"
+  },
+  "keywords": [],
+  "author": "",
+  "prettier": "@repo/prettier-config",
+  "license": "ISC",
+  "dependencies": {
+    "cross-fetch": "^4.0.0"
+  }
+}
